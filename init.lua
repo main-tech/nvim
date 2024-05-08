@@ -575,7 +575,17 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        tsserver = {},
+        bashls = {},
+        cssls = {},
+        dockerls = {},
+        docker_compose_language_service = {},
+        helm_ls = {},
+        jsonls = {},
+        texlab = {},
+        terraformls = {},
+        yamlls = {},
+
         --
 
         lua_ls = {
@@ -835,7 +845,24 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'yuck',
+        'terraform',
+        'json',
+        'typescript',
+        'yaml',
+        'tsx',
+        'dockerfile',
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
