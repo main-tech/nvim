@@ -223,6 +223,12 @@ vim.opt.rtp:prepend(lazypath)
 --  To update plugins you can run
 --    :Lazy update
 --
+-- Disable netrw at the very start of your init.lua
+-- This is done since I am using nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
@@ -321,7 +327,7 @@ require('lazy').setup({
     version = '*',
     lazy = false,
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      { 'nvim-tree/nvim-web-devicons' },
     },
     config = function()
       require('nvim-tree').setup {}
@@ -616,6 +622,7 @@ require('lazy').setup({
         texlab = {},
         terraformls = {},
         yamlls = {},
+        taplo = {},
 
         --
 
@@ -893,6 +900,7 @@ require('lazy').setup({
         'markdown',
         'vim',
         'vimdoc',
+        'toml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
