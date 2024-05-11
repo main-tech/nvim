@@ -441,7 +441,7 @@ require('lazy').setup({
     version = '*',
     lazy = false,
     dependencies = {
-      { 'nvim-tree/nvim-web-devicons', tag = '0.100' },
+      { 'nvim-tree/nvim-web-devicons' },
     },
     config = function()
       require('nvim-tree').setup {
