@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -324,19 +324,7 @@ require('lazy').setup({
     lazy = false,
     priority = 100,
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    lazy = false,
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },
-    },
-    config = function()
-      require('nvim-tree').setup {
-        sync_root_with_cwd = true,
-      }
-    end,
-  },
+
   -- NOTE: Plugins can specify dependencies.
   --
   -- The dependencies are proper plugin specifications as well - anything
@@ -448,7 +436,40 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', tag = '0.100' },
+    },
+    config = function()
+      require('nvim-tree').setup {
+        sync_root_with_cwd = true,
+        diagnostics = {
+          enable = true,
+          show_on_dirs = true,
+          show_on_open_dirs = true,
+          debounce_delay = 50,
+          severity = {
+            min = vim.diagnostic.severity.HINT,
+            max = vim.diagnostic.severity.ERROR,
+          },
+          icons = {
+            hint = '',
+            info = '',
+            warning = '',
+            error = '',
+          },
+        },
+        modified = {
+          enable = true,
+          show_on_dirs = true,
+          show_on_open_dirs = true,
+        },
+      }
+    end,
+  },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
