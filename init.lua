@@ -648,6 +648,7 @@ require('lazy').setup({
         terraformls = {},
         yamlls = {},
         taplo = {},
+        templ = {},
 
         --
 
@@ -926,6 +927,7 @@ require('lazy').setup({
         'vim',
         'vimdoc',
         'toml',
+        'templ',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
