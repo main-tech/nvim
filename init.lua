@@ -247,7 +247,23 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'brenoprata10/nvim-highlight-colors',
+    opts = {
+      ---Render style
+      ---@usage 'background'|'foreground'|'virtual'
+      render = 'background',
 
+      ---Set virtual symbol (requires render to be set to 'virtual')
+      virtual_symbol = '■',
+
+      ---Highlight named colors, e.g. 'green'
+      enable_named_colors = true,
+
+      ---Highlight tailwind colors, e.g. 'bg-blue-500'
+      enable_tailwind = true,
+    },
+  },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -649,7 +665,7 @@ require('lazy').setup({
         yamlls = {},
         taplo = {},
         templ = {},
-
+        tailwindcss = {},
         --
 
         lua_ls = {
