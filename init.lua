@@ -251,42 +251,6 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-  {
-    'romgrk/barbar.nvim',
-    opts = {
-      dependencies = {
-        'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-        'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-      },
-      init = function()
-        vim.g.barbar_auto_setup = false
-      end,
-      opts = {
-        -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-        animation = true,
-        -- insert_at_start = true,
-        -- …etc.
-      },
-      --[[    version = '^1.0.0', -- optional: only update when a new ]]
-    },
-  },
-  {
-    'brenoprata10/nvim-highlight-colors',
-    opts = {
-      ---Render style
-      ---@usage 'background'|'foreground'|'virtual'
-      render = 'background',
-
-      ---Set virtual symbol (requires render to be set to 'virtual')
-      virtual_symbol = '■',
-
-      ---Highlight named colors, e.g. 'green'
-      enable_named_colors = true,
-
-      ---Highlight tailwind colors, e.g. 'bg-blue-500'
-      enable_tailwind = true,
-    },
-  },
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -342,28 +306,6 @@ require('lazy').setup({
       }, { mode = 'v' })
     end,
   },
-
-  {
-    'coffebar/neovim-project',
-    opts = {
-      projects = { -- define project roots
-        '~/Projects/*',
-        '~/.config/*',
-      },
-    },
-    init = function()
-      -- enable saving the state of plugins in the session
-      vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-    end,
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope.nvim', tag = '0.1.4' },
-      { 'Shatur/neovim-session-manager' },
-    },
-    lazy = false,
-    priority = 100,
-  },
-
   -- NOTE: Plugins can specify dependencies.
   --
   -- The dependencies are proper plugin specifications as well - anything
@@ -475,40 +417,11 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    version = '*',
-    lazy = false,
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },
-    },
-    config = function()
-      require('nvim-tree').setup {
-        sync_root_with_cwd = true,
-        diagnostics = {
-          enable = true,
-          show_on_dirs = true,
-          show_on_open_dirs = true,
-          debounce_delay = 50,
-          severity = {
-            min = vim.diagnostic.severity.HINT,
-            max = vim.diagnostic.severity.ERROR,
-          },
-          icons = {
-            hint = '',
-            info = '',
-            warning = '',
-            error = '',
-          },
-        },
-        modified = {
-          enable = true,
-          show_on_dirs = true,
-          show_on_open_dirs = true,
-        },
-      }
-    end,
-  },
+  -- mandela's custom plugins
+  require 'custom.plugins.nvim-tree',
+  require 'custom.plugins.barbar',
+  require 'custom.plugins.neovim-project',
+  require 'custom.plugins.nvim-highlight-colors',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
