@@ -185,8 +185,6 @@ vim.keymap.set('i', 'jj', '<ESC><ESC>', { desc = "Map 'jj'  to escape key " })
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set('n', '<A-.>', '<cmd>BufferPrevious<CR>')
-vim.keymap.set('n', '<A-,>', '<cmd>BufferNext<CR>')
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -235,6 +233,8 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
+-- mandela's cust key maps
+require 'custom.mappings.custom'
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
