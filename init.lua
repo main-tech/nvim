@@ -422,6 +422,7 @@ require('lazy').setup({
   require 'custom.plugins.barbar',
   require 'custom.plugins.neovim-project',
   require 'custom.plugins.nvim-highlight-colors',
+  require 'custom.plugins.toggleterm',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
