@@ -424,6 +424,7 @@ require('lazy').setup({
   require 'custom.plugins.nvim-highlight-colors',
   require 'custom.plugins.toggleterm',
   require 'custom.plugins.claudecode',
+  require 'custom.plugins.codex',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
