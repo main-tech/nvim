@@ -425,6 +425,7 @@ require('lazy').setup({
   require 'custom.plugins.toggleterm',
   require 'custom.plugins.claudecode',
   require 'custom.plugins.codex',
+  require 'custom.plugins.colorschemes',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -813,7 +814,8 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- Active colorscheme is set in custom/plugins/colorschemes.lua (neon).
+      -- vim.cmd.colorscheme 'tokyonight-night'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
