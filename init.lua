@@ -426,6 +426,7 @@ require('lazy').setup({
   require 'custom.plugins.claudecode',
   require 'custom.plugins.codex',
   require 'custom.plugins.colorschemes',
+  require 'custom.plugins.gemini',
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
